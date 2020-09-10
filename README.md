@@ -19,6 +19,8 @@ option | equivalent group
 -r | ra re ri ru ro
 -n | na ne ni nu no
 -w | wa wu wo
+flag | behaviour
+-----|----------
 --base | is the same as -ahkmsytrnw
 --dakuten | adds each specified group's dakuten
 --combined | adds eache specified group's combo katagana
