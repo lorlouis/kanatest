@@ -6,7 +6,7 @@
 
 launching this program without argumentwill add all the base katagana
 
-### Groups:
+### Parameters:
 option | equivalent group
 -------|-----------------
 -a | a e i u o
