@@ -19,10 +19,10 @@ option | equivalent group
 -r | ra re ri ru ro
 -n | na ne ni nu no
 -w | wa wu wo
-base | is the same as -ahkmsytrnw
-dakuten | adds each specified group's dakuten
-combined | adds eache specified group's combo katagana
-hiragana | will load hiraganas instead of kataganas
+--base | is the same as -ahkmsytrnw
+--dakuten | adds each specified group's dakuten
+--combined | adds eache specified group's combo katagana
+--hiragana | will load hiraganas instead of kataganas
 
 if --dakuten or --combined are the only
 groups specified all the dakuten and/or combo
