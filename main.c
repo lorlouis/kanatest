@@ -18,6 +18,7 @@ struct kana_flags{
     unsigned int dakuten : 1;
     unsigned int combined : 1;
     unsigned int base : 1;
+    unsigned hiragana_mode: 1;
     unsigned int a : 1;
     unsigned int h : 1;
     unsigned int k : 1;
@@ -55,6 +56,7 @@ void scramble_array(void **array, size_t size) {
 int load_kana(
         struct stack_ptr_to_cards *main_stack,
         char* kana_groups,
+        struct stack *(*load_stacks)[],
         struct kana_flags *flags) {
     while(*kana_groups) {
         switch(*kana_groups) {
@@ -63,7 +65,7 @@ int load_kana(
                 if(flags->a == 0) {
                     flags->a = 1;
                     add_stack_to_main_stack(
-                            main_stack, &katagana_stacks, katagana_index_a);
+                            main_stack, load_stacks, katagana_index_a);
                 }
 
                 break;
@@ -73,26 +75,26 @@ int load_kana(
                 if(flags->h == 0) {
                     flags->h = 1;
                     add_stack_to_main_stack(
-                            main_stack, &katagana_stacks, katagana_index_ha);
+                            main_stack, load_stacks, katagana_index_ha);
                     /* load this group's dakuten if specified */
                     if(flags->dakuten) {
                         add_stack_to_main_stack(
-                                main_stack, &katagana_stacks, katagana_index_ba);
+                                main_stack, load_stacks, katagana_index_ba);
                         add_stack_to_main_stack(
-                                main_stack, &katagana_stacks, katagana_index_pa);
+                                main_stack, load_stacks, katagana_index_pa);
                     }
                     /* load this group's combo katagana if specified */
                     if(flags->combined) {
                         add_stack_to_main_stack(
-                                main_stack, &katagana_stacks,
+                                main_stack, load_stacks,
                                 katagana_index_combined_hy);
                         /* load combo dakuten if specified */
                         if(flags->dakuten) {
                             add_stack_to_main_stack(
-                                    main_stack, &katagana_stacks,
+                                    main_stack, load_stacks,
                                     katagana_index_combined_by);
                             add_stack_to_main_stack(
-                                    main_stack, &katagana_stacks,
+                                    main_stack, load_stacks,
                                     katagana_index_combined_py);
                         }
                     }
@@ -104,18 +106,18 @@ int load_kana(
                 if(flags->k == 0) {
                     flags->k = 1;
                     add_stack_to_main_stack(
-                            main_stack, &katagana_stacks, katagana_index_ka);
+                            main_stack, load_stacks, katagana_index_ka);
                     if(flags->dakuten) {
                         add_stack_to_main_stack(
-                                main_stack, &katagana_stacks, katagana_index_ga);
+                                main_stack, load_stacks, katagana_index_ga);
                     }
                     if(flags->combined) {
                         add_stack_to_main_stack(
-                                main_stack, &katagana_stacks,
+                                main_stack, load_stacks,
                                 katagana_index_combined_ky);
                         if(flags->dakuten) {
                             add_stack_to_main_stack(
-                                    main_stack, &katagana_stacks,
+                                    main_stack, load_stacks,
                                     katagana_index_combined_gy);
                         }
                     }
@@ -126,10 +128,10 @@ int load_kana(
                 if(flags->m == 0) {
                     flags->m = 1;
                     add_stack_to_main_stack(
-                            main_stack, &katagana_stacks, katagana_index_ma);
+                            main_stack, load_stacks, katagana_index_ma);
                     if(flags->combined) {
                         add_stack_to_main_stack(
-                                main_stack, &katagana_stacks,
+                                main_stack, load_stacks,
                                 katagana_index_combined_my);
                     }
                 }
@@ -139,18 +141,18 @@ int load_kana(
                 if(flags->s == 0) {
                     flags->s = 1;
                     add_stack_to_main_stack(
-                            main_stack, &katagana_stacks, katagana_index_sa);
+                            main_stack, load_stacks, katagana_index_sa);
                     if(flags->dakuten) {
                         add_stack_to_main_stack(
-                                main_stack, &katagana_stacks, katagana_index_za);
+                                main_stack, load_stacks, katagana_index_za);
                     }
                     if(flags->combined) {
                         add_stack_to_main_stack(
-                                main_stack, &katagana_stacks,
+                                main_stack, load_stacks,
                                 katagana_index_combined_shy);
                         if(flags->dakuten) {
                             add_stack_to_main_stack(
-                                    main_stack, &katagana_stacks,
+                                    main_stack, load_stacks,
                                     katagana_index_combined_jy);
                         }
                     }
@@ -161,7 +163,7 @@ int load_kana(
                 if(flags->y == 0) {
                     flags->y = 1;
                     add_stack_to_main_stack(
-                            main_stack, &katagana_stacks, katagana_index_ya);
+                            main_stack, load_stacks, katagana_index_ya);
                 }
                 break;
 
@@ -169,18 +171,18 @@ int load_kana(
                 if(flags->t == 0) {
                     flags->t = 1;
                     add_stack_to_main_stack(
-                            main_stack, &katagana_stacks, katagana_index_ta);
+                            main_stack, load_stacks, katagana_index_ta);
                     if(flags->dakuten) {
                         add_stack_to_main_stack(
-                                main_stack, &katagana_stacks, katagana_index_da);
+                                main_stack, load_stacks, katagana_index_da);
                     }
                     if(flags->combined) {
                         add_stack_to_main_stack(
-                                main_stack, &katagana_stacks,
+                                main_stack, load_stacks,
                                 katagana_index_combined_chy);
                         if(flags->dakuten) {
                             add_stack_to_main_stack(
-                                    main_stack, &katagana_stacks,
+                                    main_stack, load_stacks,
                                     katagana_index_combined_dzy);
                         }
                     }
@@ -191,10 +193,10 @@ int load_kana(
                 if(flags->r == 0) {
                     flags->r = 1;
                     add_stack_to_main_stack(
-                            main_stack, &katagana_stacks, katagana_index_ra);
+                            main_stack, load_stacks, katagana_index_ra);
                     if(flags->combined) {
                         add_stack_to_main_stack(
-                                main_stack, &katagana_stacks,
+                                main_stack, load_stacks,
                                 katagana_index_combined_ry);
                     }
                 }
@@ -204,10 +206,10 @@ int load_kana(
                 if(flags->n == 0) {
                     flags->n = 1;
                     add_stack_to_main_stack(
-                            main_stack, &katagana_stacks, katagana_index_na);
+                            main_stack, load_stacks, katagana_index_na);
                     if(flags->combined) {
                         add_stack_to_main_stack(
-                                main_stack, &katagana_stacks,
+                                main_stack, load_stacks,
                                 katagana_index_combined_ny);
                     }
                 }
@@ -217,7 +219,7 @@ int load_kana(
                 if(flags->w == 0) {
                     flags->w = 1;
                     add_stack_to_main_stack(
-                            main_stack, &katagana_stacks, katagana_index_wa);
+                            main_stack, load_stacks, katagana_index_wa);
                 }
                 break;
             default:
@@ -247,6 +249,7 @@ int main(int argc, char** argv) {
     int score_good=0, score_bad=0;
     struct kana_flags flags = {0};
     struct stack_ptr_to_cards main_stack = {0};
+    struct stack *(*load_stacks)[] = &katagana_stacks;
     if(argc > 1 && !strcmp("--help", argv[1])) {
         printf("Usage: %s [--help | [-ahkmsytrnw] [--dakuten] [--combined]]\n\n"
                "launching this program without argument"
@@ -264,7 +267,8 @@ int main(int argc, char** argv) {
                "\t-w: wa wu wo\n"
                "--base is the same as -ahkmsytrnw\n"
                "--dakuten adds each specified group's dakuten\n"
-               "--combined adds eache specified group's combo katagana\n\n"
+               "--combined adds eache specified group's combo katagana\n"
+               "--hiragana will load hiraganas instead of kataganas\n\n"
                "if --dakuten or --combined are the only\n"
                "groups specified all the dakuten and/or combo\n"
                "katagana will be added whithout adding the base katagana\n\n"
@@ -284,13 +288,17 @@ int main(int argc, char** argv) {
         else if(!strcmp("--base", argv[i])) {
             flags.base = 1;
         }
+        else if(!strcmp("--hiragana", argv[i])) {
+            flags.hiragana_mode = 1;
+            load_stacks = &hiragana_stacks;
+        }
     }
     /* parse the args and load the kataganas */
     while(argc-- > 1 && flags.base != 1) {
         argv++;
         if((*argv)[0] == '-' && (*argv)[1] != '-') {
             (*argv)++;
-                load_kana(&main_stack, *argv, &flags);
+                load_kana(&main_stack, *argv, load_stacks, &flags);
         }
     }
 
@@ -299,7 +307,7 @@ int main(int argc, char** argv) {
         /* add all the dakuten if --dakuten and no group specified */
         if(flags.dakuten) {
             for(int i = katagana_index_ga; i <= katagana_index_pa; i++) {
-                add_stack_to_main_stack(&main_stack, &katagana_stacks, i);
+                add_stack_to_main_stack(&main_stack, load_stacks, i);
             }
         }
         /* add all combined if no groups other than --dakuten were specified */
@@ -307,21 +315,22 @@ int main(int argc, char** argv) {
             for(int i = katagana_index_combined_ky;
                     i <= katagana_index_combined_ny;
                     i++) {
-                add_stack_to_main_stack(&main_stack, &katagana_stacks, i);
+                add_stack_to_main_stack(&main_stack, load_stacks, i);
             }
         }
+        if(flags.hiragana_mode) flags.base = 1;
     }
     /* add the base group (will load the dakutens and combined if specified) */
     if(flags.base == 1) {
         char* kanas = "ahkmsytrnw";
-        load_kana(&main_stack, kanas, &flags);
+        load_kana(&main_stack, kanas, load_stacks, &flags);
     }
 
     /* init random */
     time_t t;
     srand((unsigned)time(&t));
 
-    //scramble_array((void**)main_stack.cards, main_stack.size);
+    scramble_array((void**)main_stack.cards, main_stack.size);
 
     for(int i=0; i < main_stack.size; i++) {
         if(ask_user(main_stack.cards[i])) {
