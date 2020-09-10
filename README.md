@@ -6,7 +6,7 @@
 
 launching this program without argumentwill add all the base katagana
 
-###Groups:
+### Groups:
 option | equivalent group
 -a | a e i u o
 -h | ha he hi fu ho
@@ -26,5 +26,5 @@ hiragana | will load hiraganas instead of kataganas
 if --dakuten or --combined are the only
 groups specified all the dakuten and/or combo
 katagana will be added whithout adding the base katagana
-#### note
+#### Note
 all invalid arguments will be ignored
