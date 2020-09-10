@@ -8,6 +8,7 @@ launching this program without argumentwill add all the base katagana
 
 ### Groups:
 option | equivalent group
+-------|-----------------
 -a | a e i u o
 -h | ha he hi fu ho
 -k | ka ke ki ku ko
