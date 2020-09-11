@@ -4,7 +4,7 @@
 ## Usage
 ./kanatest [--help | [-ahkmsytrnw] [--dakuten] [--combined]]
 
-launching this program without argumentwill add all the base katagana
+launching this program without arguments is the same as --base
 
 ### Parameters:
 option | equivalent group
