@@ -30,5 +30,3 @@ flag | behaviour
 if --dakuten or --combined are the only
 groups specified all the dakuten and/or combo
 katagana will be added whithout adding the base katagana
-#### Note
-all invalid arguments will be ignored
