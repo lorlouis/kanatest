@@ -272,7 +272,6 @@ int main(int argc, char** argv) {
                "if --dakuten or --combined are the only\n"
                "groups specified all the dakuten and/or combo\n"
                "katagana will be added whithout adding the base katagana\n\n"
-               "note: all invalid arguments will be ignored\n"
                 , argv[0]);
         return 0;
     }
@@ -292,13 +291,20 @@ int main(int argc, char** argv) {
             flags.hiragana_mode = 1;
             load_stacks = &hiragana_stacks;
         }
+        else if(argv[i][0] == '-' && argv[i][1] == '-') {
+            printf("Unrecognised parameter \"%s\"\n", argv[i]);
+            return 1;
+        }
     }
     /* parse the args and load the kataganas */
     while(argc-- > 1 && flags.base != 1) {
         argv++;
         if((*argv)[0] == '-' && (*argv)[1] != '-') {
             (*argv)++;
-                load_kana(&main_stack, *argv, load_stacks, &flags);
+            if(load_kana(&main_stack, *argv, load_stacks, &flags)){
+                printf("unrecognised group when parsing \"%s\"\n", *argv);
+                return 1;
+            }
         }
     }
 
