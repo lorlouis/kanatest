@@ -1,5 +1,5 @@
 # Kanatest
-## A simple katagana and hiragana practice program:wa
+### A simple katagana and hiragana practice program
 
 ## Usage
 ./kanatest [--help | [-ahkmsytrnw] [--dakuten] [--combined]]
