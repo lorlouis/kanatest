@@ -2,7 +2,7 @@
 ### A simple katagana and hiragana practice program
 
 ## Usage
-./kanatest [--help | [-ahkmsytrnw] [--dakuten] [--combined]]
+./kanatest [--help | [-ahkmsytrnw] [--dakuten] [--combined] [--hiragana]]
 
 launching this program without arguments is the same as --base
 

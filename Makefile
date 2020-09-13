@@ -12,5 +12,11 @@ all: $(OBJS)
 %.o: %.c
 	$(CC) $(FLAGS) $^
 
+install:
+	cp $(OUT) ~/.local/bin/
+
+uninstall:
+	rm ~/.local/bin/$(OUT)
+
 clean:
 	rm -f $(OBJS) $(OUT)
