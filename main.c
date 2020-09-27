@@ -5,6 +5,7 @@
 #include <string.h>
 
 #include "utf8.h"
+#include "utils.h"
 
 #include "cards.h"
 
@@ -230,15 +231,13 @@ int load_kana(
     return 0;
 }
 
-int ask_user(struct card *card) {
+int ask_user(struct card *card, FILE *stream) {
     char buff[MAX_CARD_ANSWER_LEN];
     printf("\t");
     print_utf8_seq(card->utf8_seq);
     printf("\n");
     printf("type the associated romaji: ");
-    fgets(buff, strlen(card->answer)+1, stdin);
-    int too_long = 0;
-    while(fgetc(stdin) != '\n') too_long=1;
+    int too_long = freadn(buff, strlen(card->answer)+1, stream);
     return !(too_long || strncmp(buff, card->answer, strlen(card->answer)+1));
 }
 
@@ -339,7 +338,7 @@ int main(int argc, char** argv) {
     scramble_array((void**)main_stack.cards, main_stack.size);
 
     for(int i=0; i < main_stack.size; i++) {
-        if(ask_user(main_stack.cards[i])) {
+        if(ask_user(main_stack.cards[i], stdin)) {
             printf("\033[0;32mGood\033[0m\t%d/%d\n", i+1, main_stack.size);
             score_good++;
         }

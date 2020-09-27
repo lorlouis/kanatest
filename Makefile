@@ -1,5 +1,5 @@
-OBJS	= main.o utf8.o
-SOURCE	= main.c utf8.c
+OBJS	= main.o utf8.o utils.o
+SOURCE	= main.c utf8.c utils.c
 HEADER	=
 OUT	= kanatest
 CC	= gcc
