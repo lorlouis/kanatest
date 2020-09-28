@@ -21,6 +21,7 @@ int freadn(char *s, int size, FILE *stream) {
         }
         buff[counter++] = c;
     }
+
     buff[counter++] = '\0';
     /* TODO flush input stream */
     while((c = getc(stream)) != EOF && c != '\n' && c != '\t' && c != 0) counter++;

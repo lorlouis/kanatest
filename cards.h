@@ -15,37 +15,37 @@ struct stack {
     struct card cards[];
 };
 
-enum katagana_index {
-    katagana_index_a,
-    katagana_index_ha,
-    katagana_index_ka,
-    katagana_index_ma,
-    katagana_index_sa,
-    katagana_index_ya,
-    katagana_index_ta,
-    katagana_index_ra,
-    katagana_index_na,
-    katagana_index_wa,
-    katagana_index_ga,
-    katagana_index_za,
-    katagana_index_da,
-    katagana_index_ba,
-    katagana_index_pa,
-    katagana_index_combined_ky,
-    katagana_index_combined_gy,
-    katagana_index_combined_hy,
-    katagana_index_combined_by,
-    katagana_index_combined_py,
-    katagana_index_combined_shy,
-    katagana_index_combined_jy,
-    katagana_index_combined_my,
-    katagana_index_combined_chy,
-    katagana_index_combined_dzy,
-    katagana_index_combined_ry,
-    katagana_index_combined_ny,
+enum katakana_index {
+    katakana_index_a,
+    katakana_index_ha,
+    katakana_index_ka,
+    katakana_index_ma,
+    katakana_index_sa,
+    katakana_index_ya,
+    katakana_index_ta,
+    katakana_index_ra,
+    katakana_index_na,
+    katakana_index_wa,
+    katakana_index_ga,
+    katakana_index_za,
+    katakana_index_da,
+    katakana_index_ba,
+    katakana_index_pa,
+    katakana_index_combined_ky,
+    katakana_index_combined_gy,
+    katakana_index_combined_hy,
+    katakana_index_combined_by,
+    katakana_index_combined_py,
+    katakana_index_combined_shy,
+    katakana_index_combined_jy,
+    katakana_index_combined_my,
+    katakana_index_combined_chy,
+    katakana_index_combined_dzy,
+    katakana_index_combined_ry,
+    katakana_index_combined_ny,
 };
 
-static struct stack katagana_a = {
+static struct stack katakana_a = {
     .size = 5, .cards = {
         {.utf8_seq = {0x30a2,0}, .answer = "a"},
         {.utf8_seq = {0x30a4,0}, .answer = "i"},
@@ -55,7 +55,7 @@ static struct stack katagana_a = {
     }
 };
 
-static struct stack katagana_ha = {
+static struct stack katakana_ha = {
     .size = 5, .cards = {
         {.utf8_seq = {0x30cf,0}, .answer = "ha"},
         {.utf8_seq = {0x30d2,0}, .answer = "hi"},
@@ -65,7 +65,7 @@ static struct stack katagana_ha = {
     }
 };
 
-static struct stack katagana_ka = {
+static struct stack katakana_ka = {
     .size = 5, .cards = {
         {.utf8_seq = {0x30ab,0}, .answer = "ka"},
         {.utf8_seq = {0x30ad,0}, .answer = "ki"},
@@ -75,7 +75,7 @@ static struct stack katagana_ka = {
     }
 };
 
-static struct stack katagana_ma = {
+static struct stack katakana_ma = {
     .size = 5, .cards = {
         {.utf8_seq = {0x30de,0}, .answer = "ma"},
         {.utf8_seq = {0x30df,0}, .answer = "mi"},
@@ -85,7 +85,7 @@ static struct stack katagana_ma = {
     }
 };
 
-static struct stack katagana_sa = {
+static struct stack katakana_sa = {
     .size = 5, .cards = {
         {.utf8_seq = {0x30b5,0}, .answer = "sa"},
         {.utf8_seq = {0x30b7,0}, .answer = "shi"},
@@ -95,7 +95,7 @@ static struct stack katagana_sa = {
     }
 };
 
-static struct stack katagana_ya = {
+static struct stack katakana_ya = {
     .size = 3, .cards = {
         {.utf8_seq = {0x30e4,0}, .answer = "ya"},
         {.utf8_seq = {0x30e6,0}, .answer = "yu"},
@@ -103,7 +103,7 @@ static struct stack katagana_ya = {
     }
 };
 
-static struct stack katagana_ta = {
+static struct stack katakana_ta = {
     .size = 5, .cards = {
         {.utf8_seq = {0x30bf,0}, .answer = "ta"},
         {.utf8_seq = {0x30c1,0}, .answer = "chi"},
@@ -113,7 +113,7 @@ static struct stack katagana_ta = {
     }
 };
 
-static struct stack katagana_ra = {
+static struct stack katakana_ra = {
     .size = 5, .cards = {
         {.utf8_seq = {0x30e9,0}, .answer = "ra"},
         {.utf8_seq = {0x30ea,0}, .answer = "ri"},
@@ -123,7 +123,7 @@ static struct stack katagana_ra = {
     }
 };
 
-static struct stack katagana_na = {
+static struct stack katakana_na = {
     .size = 5, .cards = {
         {.utf8_seq = {0x30ca,0}, .answer = "na"},
         {.utf8_seq = {0x30cb,0}, .answer = "ni"},
@@ -133,7 +133,7 @@ static struct stack katagana_na = {
     }
 };
 
-static struct stack katagana_wa = {
+static struct stack katakana_wa = {
     .size = 3, .cards = {
         {.utf8_seq = {0x30ef,0}, .answer = "wa"},
         {.utf8_seq = {0x30f2,0}, .answer = "wo"},
@@ -141,7 +141,7 @@ static struct stack katagana_wa = {
     }
 };
 
-static struct stack katagana_ga = {
+static struct stack katakana_ga = {
     .size = 5, .cards = {
         {.utf8_seq = {0x30ac,0}, .answer = "ga"},
         {.utf8_seq = {0x30ae,0}, .answer = "gi"},
@@ -151,7 +151,7 @@ static struct stack katagana_ga = {
     }
 };
 
-static struct stack katagana_za = {
+static struct stack katakana_za = {
     .size = 5, .cards = {
         {.utf8_seq = {0x30b6,0}, .answer = "za"},
         {.utf8_seq = {0x30b8,0}, .answer = "ji"},
@@ -161,7 +161,7 @@ static struct stack katagana_za = {
     }
 };
 
-static struct stack katagana_da = {
+static struct stack katakana_da = {
     .size = 5, .cards = {
         {.utf8_seq = {0x30c0,0}, .answer = "da"},
         {.utf8_seq = {0x30c2,0}, .answer = "dzi"},
@@ -171,7 +171,7 @@ static struct stack katagana_da = {
     }
 };
 
-static struct stack katagana_ba = {
+static struct stack katakana_ba = {
     .size = 5, .cards = {
         {.utf8_seq = {0x30d0,0}, .answer = "ba"},
         {.utf8_seq = {0x30d3,0}, .answer = "bi"},
@@ -181,7 +181,7 @@ static struct stack katagana_ba = {
     }
 };
 
-static struct stack katagana_pa = {
+static struct stack katakana_pa = {
     .size = 5, .cards = {
         {.utf8_seq = {0x30d1,0}, .answer = "pa"},
         {.utf8_seq = {0x30d4,0}, .answer = "pi"},
@@ -191,7 +191,7 @@ static struct stack katagana_pa = {
     }
 };
 
-static struct stack katagana_combined_ky = {
+static struct stack katakana_combined_ky = {
     .size = 3, .cards = {
         {.utf8_seq = {0x30ad, 0x30e3,0}, .answer = "kya"},
         {.utf8_seq = {0x30ad, 0x30e5,0}, .answer = "kyu"},
@@ -199,7 +199,7 @@ static struct stack katagana_combined_ky = {
     }
 };
 
-static struct stack katagana_combined_gy = {
+static struct stack katakana_combined_gy = {
     .size = 3, .cards = {
         {.utf8_seq = {0x30ae, 0x30e3,0}, .answer = "gya"},
         {.utf8_seq = {0x30ae, 0x30e5,0}, .answer = "gyu"},
@@ -207,7 +207,7 @@ static struct stack katagana_combined_gy = {
     }
 };
 
-static struct stack katagana_combined_hy = {
+static struct stack katakana_combined_hy = {
     .size = 3, .cards = {
         {.utf8_seq = {0x30d2, 0x30e3,0}, .answer = "hya"},
         {.utf8_seq = {0x30d2, 0x30e5,0}, .answer = "hyu"},
@@ -215,7 +215,7 @@ static struct stack katagana_combined_hy = {
     }
 };
 
-static struct stack katagana_combined_by = {
+static struct stack katakana_combined_by = {
     .size = 3, .cards = {
         {.utf8_seq = {0x30d3, 0x30e3,0}, .answer = "bya"},
         {.utf8_seq = {0x30d3, 0x30e5,0}, .answer = "byu"},
@@ -223,7 +223,7 @@ static struct stack katagana_combined_by = {
     }
 };
 
-static struct stack katagana_combined_py = {
+static struct stack katakana_combined_py = {
     .size = 3, .cards = {
         {.utf8_seq = {0x30d4, 0x30e3,0}, .answer = "pya"},
         {.utf8_seq = {0x30d4, 0x30e5,0}, .answer = "pyu"},
@@ -231,7 +231,7 @@ static struct stack katagana_combined_py = {
     }
 };
 
-static struct stack katagana_combined_shy = {
+static struct stack katakana_combined_shy = {
     .size = 3, .cards = {
         {.utf8_seq = {0x30b7, 0x30e3,0}, .answer = "sha"},
         {.utf8_seq = {0x30b7, 0x30e5,0}, .answer = "shu"},
@@ -239,7 +239,7 @@ static struct stack katagana_combined_shy = {
     }
 };
 
-static struct stack katagana_combined_jy = {
+static struct stack katakana_combined_jy = {
     .size = 3, .cards = {
         {.utf8_seq = {0x30b8, 0x30e3,0}, .answer = "ja"},
         {.utf8_seq = {0x30b8, 0x30e5,0}, .answer = "ju"},
@@ -247,7 +247,7 @@ static struct stack katagana_combined_jy = {
     }
 };
 
-static struct stack katagana_combined_my = {
+static struct stack katakana_combined_my = {
     .size = 3, .cards = {
         {.utf8_seq = {0x30df, 0x30e3,0}, .answer = "mya"},
         {.utf8_seq = {0x30df, 0x30e5,0}, .answer = "myu"},
@@ -255,7 +255,7 @@ static struct stack katagana_combined_my = {
     }
 };
 
-static struct stack katagana_combined_chy = {
+static struct stack katakana_combined_chy = {
     .size = 3, .cards = {
         {.utf8_seq = {0x30c1, 0x30e3,0}, .answer = "cha"},
         {.utf8_seq = {0x30c1, 0x30e5,0}, .answer = "chu"},
@@ -263,7 +263,7 @@ static struct stack katagana_combined_chy = {
     }
 };
 
-static struct stack katagana_combined_dzy = {
+static struct stack katakana_combined_dzy = {
     .size = 3, .cards = {
         {.utf8_seq = {0x30c2, 0x30e3,0}, .answer = "dja"},
         {.utf8_seq = {0x30c2, 0x30e5,0}, .answer = "dju"},
@@ -271,7 +271,7 @@ static struct stack katagana_combined_dzy = {
     }
 };
 
-static struct stack katagana_combined_ry = {
+static struct stack katakana_combined_ry = {
     .size = 3, .cards = {
         {.utf8_seq = {0x30ea, 0x30e3,0}, .answer = "rya"},
         {.utf8_seq = {0x30ea, 0x30e5,0}, .answer = "ryu"},
@@ -279,7 +279,7 @@ static struct stack katagana_combined_ry = {
     }
 };
 
-static struct stack katagana_combined_ny = {
+static struct stack katakana_combined_ny = {
     .size = 3, .cards = {
         {.utf8_seq = {0x30cb, 0x30e3,0}, .answer = "nya"},
         {.utf8_seq = {0x30cb, 0x30e5,0}, .answer = "nyu"},
@@ -287,30 +287,30 @@ static struct stack katagana_combined_ny = {
     }
 };
 
-struct stack *katagana_stacks[] = {
+struct stack *katakana_stacks[] = {
     /* base */
-    &katagana_a, &katagana_ha,
-    &katagana_ka, &katagana_ma,
-    &katagana_sa, &katagana_ya,
-    &katagana_ta, &katagana_ra,
-    &katagana_na, &katagana_wa,
+    &katakana_a, &katakana_ha,
+    &katakana_ka, &katakana_ma,
+    &katakana_sa, &katakana_ya,
+    &katakana_ta, &katakana_ra,
+    &katakana_na, &katakana_wa,
     /* dakuten/handakuten */
-    &katagana_ga, &katagana_za,
-    &katagana_da, &katagana_ba,
-    &katagana_pa,
+    &katakana_ga, &katakana_za,
+    &katakana_da, &katakana_ba,
+    &katakana_pa,
     /* combined */
-    &katagana_combined_ky,
-    &katagana_combined_gy,
-    &katagana_combined_hy,
-    &katagana_combined_by,
-    &katagana_combined_py,
-    &katagana_combined_shy,
-    &katagana_combined_jy,
-    &katagana_combined_my,
-    &katagana_combined_chy,
-    &katagana_combined_dzy,
-    &katagana_combined_ry,
-    &katagana_combined_ny,
+    &katakana_combined_ky,
+    &katakana_combined_gy,
+    &katakana_combined_hy,
+    &katakana_combined_by,
+    &katakana_combined_py,
+    &katakana_combined_shy,
+    &katakana_combined_jy,
+    &katakana_combined_my,
+    &katakana_combined_chy,
+    &katakana_combined_dzy,
+    &katakana_combined_ry,
+    &katakana_combined_ny,
 };
 
 enum hiragana_index {
