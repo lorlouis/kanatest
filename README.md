@@ -1,12 +1,15 @@
 # Kanatest
-### A simple katakana and hiragana practice program
+
+## A simple katakana and hiragana practice program
 
 ## Usage
-./kanatest [--help | [-ahkmsytrnw] [--dakuten] [--combined] [--hiragana]]
+
+    ./kanatest [--help | [-ahkmsytrnw] [--dakuten] [--combined] [--hiragana]]
 
 launching this program without arguments is the same as --base
 
-### Parameters:
+### Parameters
+
 option | equivalent group
 -------|-----------------
 -a | a e i u o
@@ -24,7 +27,7 @@ flag | behaviour
 -----|----------
 --base | is the same as -ahkmsytrnw
 --dakuten | adds each specified group's dakuten
---combined | adds eache specified group's combo katakana
+--combined | adds each specified group's combo katakana
 --hiragana | will load hiraganas instead of katakanas
 
 if --dakuten or --combined are the only

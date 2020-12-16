@@ -41,7 +41,7 @@ void add_stack_to_main_stack(
     }
 }
 
-/* requires srand to be init'd */
+/* requires srand to be init */
 void scramble_array(void **array, size_t size) {
     int pos1, pos2;
     struct card *tmp;
