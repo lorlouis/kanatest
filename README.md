@@ -12,16 +12,16 @@ launching this program without arguments is the same as --base
 
 option | equivalent group
 -------|-----------------
--a | a e i u o
--h | ha he hi fu ho
--k | ka ke ki ku ko
--m | ma me mi mu mo
--s | sa se shi su so
--y | ya yu yo
--t | ta te chi tu to
--r | ra re ri ru ro
--n | na ne ni nu no
--w | wa wu wo
+-a | ア エ イ ウ オ
+-h | ハ ヘ ヒ フ ホ
+-k | カ ケ キ ク コ
+-m | マ メ ム ミ モ
+-s | サ セ シ ス ソ
+-y | ヤ ユ ヨ
+-t | タ テ チ ツ ト
+-r | ラ レ リ ル ロ
+-n | ナ ネ ニ ヌ ノ
+-w | ワ ヲ ン
 
 flag | behaviour
 -----|----------
