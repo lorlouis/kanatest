@@ -1,6 +1,6 @@
 # Kanatest
 
-## A simple katakana and hiragana practice program
+A simple katakana and hiragana practice program
 
 ## Usage
 
