@@ -16,7 +16,7 @@ struct stack_ptr_to_cards{
 };
 
 struct kana_flags{
-    unsigned int dakuten : 1;
+    unsigned int voiced : 1;
     unsigned int combined : 1;
     unsigned int base : 1;
     unsigned hiragana_mode: 1;
@@ -76,8 +76,8 @@ int load_kana(
                     flags->h = 1;
                     add_stack_to_main_stack(
                             main_stack, load_stacks, katakana_index_ha);
-                    /* load this group's dakuten if specified */
-                    if(flags->dakuten) {
+                    /* load this group's voiced if specified */
+                    if(flags->voiced) {
                         add_stack_to_main_stack(
                                 main_stack, load_stacks, katakana_index_ba);
                         add_stack_to_main_stack(
@@ -88,8 +88,8 @@ int load_kana(
                         add_stack_to_main_stack(
                                 main_stack, load_stacks,
                                 katakana_index_combined_hy);
-                        /* load combo dakuten if specified */
-                        if(flags->dakuten) {
+                        /* load combo voiced if specified */
+                        if(flags->voiced) {
                             add_stack_to_main_stack(
                                     main_stack, load_stacks,
                                     katakana_index_combined_by);
@@ -107,7 +107,7 @@ int load_kana(
                     flags->k = 1;
                     add_stack_to_main_stack(
                             main_stack, load_stacks, katakana_index_ka);
-                    if(flags->dakuten) {
+                    if(flags->voiced) {
                         add_stack_to_main_stack(
                                 main_stack, load_stacks, katakana_index_ga);
                     }
@@ -115,7 +115,7 @@ int load_kana(
                         add_stack_to_main_stack(
                                 main_stack, load_stacks,
                                 katakana_index_combined_ky);
-                        if(flags->dakuten) {
+                        if(flags->voiced) {
                             add_stack_to_main_stack(
                                     main_stack, load_stacks,
                                     katakana_index_combined_gy);
@@ -142,7 +142,7 @@ int load_kana(
                     flags->s = 1;
                     add_stack_to_main_stack(
                             main_stack, load_stacks, katakana_index_sa);
-                    if(flags->dakuten) {
+                    if(flags->voiced) {
                         add_stack_to_main_stack(
                                 main_stack, load_stacks, katakana_index_za);
                     }
@@ -150,7 +150,7 @@ int load_kana(
                         add_stack_to_main_stack(
                                 main_stack, load_stacks,
                                 katakana_index_combined_shy);
-                        if(flags->dakuten) {
+                        if(flags->voiced) {
                             add_stack_to_main_stack(
                                     main_stack, load_stacks,
                                     katakana_index_combined_jy);
@@ -172,7 +172,7 @@ int load_kana(
                     flags->t = 1;
                     add_stack_to_main_stack(
                             main_stack, load_stacks, katakana_index_ta);
-                    if(flags->dakuten) {
+                    if(flags->voiced) {
                         add_stack_to_main_stack(
                                 main_stack, load_stacks, katakana_index_da);
                     }
@@ -180,7 +180,7 @@ int load_kana(
                         add_stack_to_main_stack(
                                 main_stack, load_stacks,
                                 katakana_index_combined_chy);
-                        if(flags->dakuten) {
+                        if(flags->voiced) {
                             add_stack_to_main_stack(
                                     main_stack, load_stacks,
                                     katakana_index_combined_dzy);
@@ -241,15 +241,15 @@ int ask_user(struct card *card, FILE *stream) {
 }
 
 /* -a -h -k -m -s -y -t -r -n -w
- * --dakuten --combined
- *  if only dakuten or combined only add them */
+ * --voiced --combined
+ *  if only voiced or combined only add them */
 int main(int argc, char** argv) {
     int score_good=0, score_bad=0;
     struct kana_flags flags = {0};
     struct stack_ptr_to_cards main_stack = {0};
     struct stack *(*load_stacks)[] = &katakana_stacks;
     if(argc > 1 && !strcmp("--help", argv[1])) {
-        printf("Usage: %s [--help | [-ahkmsytrnw] [--dakuten] [--combined]]\n\n"
+        printf("Usage: %s [--help | [-ahkmsytrnw] [--voiced] [--combined]]\n\n"
                "launching this program without any arguments\n"
                "will add all the base katakana\n\n"
                "Groups:\n"
@@ -264,11 +264,11 @@ int main(int argc, char** argv) {
                "\t-n: na ne ni nu no\n"
                "\t-w: wa wu wo\n"
                "--base is the same as -ahkmsytrnw\n"
-               "--dakuten adds each specified group's dakuten\n"
+               "--voiced adds each specified group's voiced\n"
                "--combined adds eache specified group's combo katakana\n"
                "--hiragana will load hiraganas instead of katakanas\n\n"
-               "if --dakuten or --combined are the only\n"
-               "groups specified all the dakuten and/or combo\n"
+               "if --voiced or --combined are the only\n"
+               "groups specified all the voiced and/or combo\n"
                "katakana will be added whithout adding the base katakana\n\n"
                 , argv[0]);
         return 0;
@@ -276,8 +276,8 @@ int main(int argc, char** argv) {
     if(argc == 1) flags.base = 1;
     /* set flags to know if we need to load more katakana */
     for(int i = 1; i<argc;i++) {
-        if(!strcmp("--dakuten", argv[i])) {
-            flags.dakuten = 1;
+        if(!strcmp("--voiced", argv[i])) {
+            flags.voiced = 1;
         }
         else if(!strcmp("--combined", argv[i])) {
             flags.combined = 1;
@@ -308,13 +308,13 @@ int main(int argc, char** argv) {
 
     /* only run if no groups were specified */
     if(main_stack.size == 0 && flags.base == 0) {
-        /* add all the dakuten if --dakuten and no group specified */
-        if(flags.dakuten) {
+        /* add all the voiced if --voiced and no group specified */
+        if(flags.voiced) {
             for(int i = katakana_index_ga; i <= katakana_index_pa; i++) {
                 add_stack_to_main_stack(&main_stack, load_stacks, i);
             }
         }
-        /* add all combined if no groups other than --dakuten were specified */
+        /* add all combined if no groups other than --voiced were specified */
         if(flags.combined) {
             for(int i = katakana_index_combined_ky;
                     i <= katakana_index_combined_ny;
@@ -324,7 +324,7 @@ int main(int argc, char** argv) {
         }
         if(flags.hiragana_mode) flags.base = 1;
     }
-    /* add the base group (will load the dakutens and combined if specified) */
+    /* add the base group (will load the voiced and combined if specified) */
     if(flags.base == 1) {
         char* kanas = "ahkmsytrnw";
         load_kana(&main_stack, kanas, load_stacks, &flags);
