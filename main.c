@@ -9,6 +9,9 @@
 
 #include "cards.h"
 
+/* defined in cards.c */
+extern struct stack *hiragana_stacks[];
+extern struct stack *katakana_stacks[];
 
 struct stack_ptr_to_cards{
     int size;
