@@ -346,6 +346,7 @@ int main(int argc, char** argv) {
     scramble_array((void**)main_stack.cards, main_stack.size);
 
     for(int i=0; i < main_stack.size; i++) {
+        puts("-------------------------------");
         if(ask_user(main_stack.cards[i], stdin)) {
             printf("\033[0;32mGood\033[0m\t%d/%d\n", i+1, main_stack.size);
             score_good++;
