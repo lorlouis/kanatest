@@ -294,7 +294,7 @@ struct stack *katakana_stacks[] = {
     &katakana_sa, &katakana_ya,
     &katakana_ta, &katakana_ra,
     &katakana_na, &katakana_wa,
-    /* dakuten/handakuten */
+    /* dakuten/handakute */
     &katakana_ga, &katakana_za,
     &katakana_da, &katakana_ba,
     &katakana_pa,

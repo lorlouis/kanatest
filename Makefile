@@ -3,7 +3,7 @@ SOURCE	= main.c utf8.c utils.c
 HEADER	=
 OUT	= kanatest
 CC	= gcc
-FLAGS	= -std=c99 -Wall -Wextra -Werror -g -c
+FLAGS	= -Wall -Wextra -Werror -g -c
 LFLAGS	=
 
 all: $(OBJS)

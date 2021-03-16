@@ -230,14 +230,22 @@ int load_kana(
     return 0;
 }
 
+
 int ask_user(struct card *card, FILE *stream) {
-    char buff[MAX_CARD_ANSWER_LEN];
+    size_t buff_size = 5 * sizeof(char);
+    char *buff = malloc(buff_size);
     printf("\t");
     print_utf8_seq(card->utf8_seq);
     printf("\n");
     printf("type the associated romaji: ");
-    int too_long = freadn(buff, strlen(card->answer)+1, stream);
-    return !(too_long || strncmp(buff, card->answer, strlen(card->answer)+1));
+    int char_read = getline(&buff, &buff_size, stream);
+    char *str = buff;
+    int word_len = strlen(card->answer);
+
+    int trimmed = strim(&str);
+    int excess_char = char_read - trimmed == word_len;
+
+    return !(excess_char || strncmp(str, card->answer, word_len+1));
 }
 
 /* -a -h -k -m -s -y -t -r -n -w
@@ -249,7 +257,8 @@ int main(int argc, char** argv) {
     struct stack_ptr_to_cards main_stack = {0};
     struct stack *(*load_stacks)[] = &katakana_stacks;
     if(argc > 1 && !strcmp("--help", argv[1])) {
-        printf("Usage: %s [--help | [-ahkmsytrnw] [--voiced] [--combined]]\n\n"
+        printf("Usage: %s [--help | [-ahkmsytrnw] [--voiced] "
+                "[--combined] [--hiragana]]\n\n"
                "launching this program without any arguments\n"
                "will add all the base katakana\n\n"
                "Groups:\n"
