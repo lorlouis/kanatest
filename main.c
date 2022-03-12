@@ -236,7 +236,9 @@ int load_kana(
 
 int ask_user(struct card *card, FILE *stream) {
     size_t buff_size = 5 * sizeof(char);
+
     char *buff = malloc(buff_size);
+
     printf("\t");
     print_utf8_seq(card->utf8_seq);
     printf("\n");
@@ -247,8 +249,9 @@ int ask_user(struct card *card, FILE *stream) {
 
     int trimmed = strim(&str);
     int excess_char = char_read - trimmed == word_len;
-
-    return !(excess_char || strncmp(str, card->answer, word_len+1));
+    int out = !(excess_char || strncmp(str, card->answer, word_len+1));
+    free(buff);
+    return out;
 }
 
 /* -a -h -k -m -s -y -t -r -n -w
